@@ -2,6 +2,7 @@
   import SearchComponents from "./components/SearchComponents.vue";
   import NavBottomComponents from "./components/NavBottomComponents.vue";
   import CardNewsComponents from "./components/CardNewsComponents.vue"
+  import FeedBackComponents from "./components/FeedBackComponents.vue";
   const dataLayanan = [
     {
       id:1,
@@ -63,6 +64,7 @@
           <CardNewsComponents/>
         </div>
       </div>
+      <FeedBackComponents/>
     </main>
    <footer>
       <NavBottomComponents/>
