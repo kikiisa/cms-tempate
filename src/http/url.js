@@ -1,2 +1,2 @@
-const baseURL = "http://localhost:3030/";
+const baseURL = "https://bwssulawesi2gorontalo.com/";
 export default baseURL

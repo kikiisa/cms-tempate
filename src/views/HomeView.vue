@@ -8,8 +8,8 @@ const dataCategoryLimit3 = ref([]);
 const dataLayanan = [
     {
       id:1,
-      label:"PPID",
-      link:"/",
+      label:"BWS",
+      link:"https://bwssulawesi2gorontalo.com/download",
       icon:"https://cdn-icons-png.flaticon.com/128/1302/1302002.png",
     },
     {
@@ -43,6 +43,11 @@ const getDataBerita = async () => {
   console.log(dataBerita.value);
 };
 
+const movePage = (data) => 
+{
+    window.location.href = data;
+}
+
 onMounted(() => {
   getDataBerita();
   getDataCategory();
@@ -58,15 +63,17 @@ onMounted(() => {
         <div class="menu mt-3">
           <div class="grid lg:grid-cols-4 grid-cols-3 gap-5">
             <div
+                @click="movePage(service.link)"
               v-for="service in dataLayanan"
               :key="service.id"
-              class="menu-1 p-4 bg-blue-600 text-white text-center rounded flex-col items-center justify-center"
+              class="menu-1 p-4 cursor-pointer bg-blue-600 text-white text-center rounded flex-col items-center justify-center"
             >
               <img
                 :src="service.icon"
                 alt="logo si news"
                 class="w-12 h-12 m-auto"
               />
+              
               <h3 class="font-bold text-white">{{ service.label }}</h3>
             </div>
           </div>

@@ -16,6 +16,11 @@ const routes = createRouter({
             path:"/post",
             name:"post",
             component: () => import('../views/PostView.vue')
+        },
+        {
+            path:"/post/",
+            name:"postSearch",
+            component: () => import('../views/SearchPostView.vue')
         }
        
     ]
