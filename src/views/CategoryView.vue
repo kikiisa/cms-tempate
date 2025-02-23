@@ -18,8 +18,9 @@ onMounted(() => {
 <template>
   <div>
     <div class="berita mt-3 py-4">
+      
       <div class="grid lg:grid-cols-2 gap-3">
-        <CardNewsComponents  v-for="news in dataNews" :slug="news.slug_berita" :key="news.id" :gambar="news.gambar" :data="news.id" :title="news.judul_berita"/>
+        <CardNewsComponents  v-for="news in dataNews" :slug="news.slug_berita" :key="news.id" :gambar="news.gambar" :data="news.id" :title="news.judul_berita" :deskripsi="news.ringkasan"/>
       </div>
     </div>
   </div>

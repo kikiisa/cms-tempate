@@ -6,7 +6,6 @@
     const searchKeyword = ref(route.query.keyword || ''); // Ambil keyword dari query string
     const search = () => {
         router.push({ path: '/post', query: { keyword: searchKeyword.value } });
-        
     };
     
 </script>
