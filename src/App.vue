@@ -1,34 +1,41 @@
 <script setup>
   import SearchComponents from "./components/SearchComponents.vue";
   import NavBottomComponents from "./components/NavBottomComponents.vue";
-  import CardNewsComponents from "./components/CardNewsComponents.vue"
-  import FeedBackComponents from "./components/FeedBackComponents.vue";
-  const dataLayanan = [
-    {
-      id:1,
-      label:"PPID",
-      link:"/",
-      icon:"https://cdn-icons-png.flaticon.com/128/1302/1302002.png",
-    },
-    {
-      id:2,
-      label:"SRIKANDI",
-      link:"/",
-      icon:"https://cdn-icons-png.flaticon.com/128/858/858821.png",
-    },
-    {
-      id:3,
-      label:"SIMPEG",
-      link:"/",
-      icon:"https://cdn-icons-png.flaticon.com/128/3177/3177440.png",
-    },
-  ];
+  import SidebarComponents from "./components/SidebarComponents.vue";
+  import { ref,onMounted } from "vue";
+
+  const toggle = ref(false);
+  const handleToggle = () => {
+    toggle.value = !toggle.value;
+    console.log(toggle.value);
+  };
+  onMounted(() => {
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768 ) {
+          
+          if(event.target.classList.contains('toogle-hide')){
+            toggle.value = false
+          }else{
+            toggle.value = false
+          }
+          // toggle.value = false
+
+        // sidebar.classList.remove('active');
+        }
+    });
+  });
 </script>
 <template>
   <div>
+    <SidebarComponents :toggleSidebar="toggle"/>
     <header>
       <div class="image-logo flex flex-row justify-center lg:mt-4">
-        <div class="w-full lg:w-1/2 bg-blue-700 p-3 rounded-lg flex flex-col justify-center">
+        <div class="w-full lg:w-1/2 toogle-hide bg-blue-700 p-3 rounded-lg flex flex-col justify-center">
+          <button class=" text-white  cursor-pointer" @click="handleToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+            </svg>
+          </button>
           <div class="title-header relative top-13 flex flex-row justify-center">
             <h1 class="text-center text-white text-5xl font-bold">SI <span class=" text-yellow-300">NEWS</span> </h1>
             <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 text-white ms-3 mt-1">
@@ -43,28 +50,7 @@
       </div>
     </header>
     <main class="lg:w-1/2 w-full mx-auto lg:p-0 p-3 mb-20">
-      <div class="service">
-        <div class="flex flex-col justify-start mt-10 py-2">
-          <div class="title-header">
-            <h1 class=" font-bold text-2xl text-slate-700">Layanan Terbaru</h1>
-          </div>
-          <div class="menu mt-3">
-              <div class="grid lg:grid-cols-4 grid-cols-3 gap-5">
-                <div v-for="service in dataLayanan" :key="service.id"  class="menu-1 p-4 bg-blue-600 text-white text-center rounded flex-col items-center justify-center">
-                  <img :src="service.icon" alt="logo si news" class="w-12 h-12 m-auto">
-                  <h3 class="font-bold text-white">{{ service.label }}</h3>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="berita mt-3">
-        <div class="grid lg:grid-cols-2 gap-3">  
-          <CardNewsComponents/>
-          <CardNewsComponents/>
-        </div>
-      </div>
-      <FeedBackComponents/>
+      <RouterView/>
     </main>
    <footer>
       <NavBottomComponents/>
