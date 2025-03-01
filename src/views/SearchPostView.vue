@@ -15,6 +15,7 @@ const dataNews = ref([]);
  */
 const getDataNews = async () => {
     const response = await api.get("/search-post/" + route.query.keyword);
+    
     dataNews.value = response.data;
     console.log(dataNews.value);
 }

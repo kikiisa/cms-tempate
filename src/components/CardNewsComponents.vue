@@ -1,6 +1,6 @@
 <script setup>
     import baseURL from '../http/url';
-import cutText from '../utils/tekscut';
+    import cutText from '../utils/tekscut';
     const props = defineProps(['title', 'gambar', 'slug','deskripsi'])
 </script>
 <template>

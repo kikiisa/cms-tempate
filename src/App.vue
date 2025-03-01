@@ -41,7 +41,7 @@ const handleToggle = () => {
             class="title-header relative top-13 flex flex-row justify-center"
           >
             <h1 class="text-center text-white text-5xl font-bold">
-              SI <span class="text-yellow-300">NEWS</span>
+              SI <span class="text-yellow-300">PEJAN</span>
             </h1>
             <svg
               xmlns="http://www.w3.org/2000/svg"
